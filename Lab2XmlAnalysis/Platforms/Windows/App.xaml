@@ -1,0 +1,9 @@
+﻿<!-- File: Platforms/Windows/App.xaml -->
+<maui:MauiWinUIApplication
+    x:Class="Lab2XmlAnalysis.Platforms.Windows.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:maui="using:Microsoft.Maui"
+    xmlns:local="using:Lab2XmlAnalysis.Platforms.Windows">
+
+</maui:MauiWinUIApplication>

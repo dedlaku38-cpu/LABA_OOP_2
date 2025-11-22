@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Archive>
+	<Material Title="Патерни проектування в .NET MAUI" Type="Підручник" Volume="450 стор.">
+		<Author>
+			<FullName>Петренко Іван Олексійович</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра програмної інженерії</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Основи штучного інтелекту для чайників" Type="Методичка" CreationDate="2024-01-15">
+		<Author>
+			<FullName>Сидоренко Андрій Богданович</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра штучного інтелекту</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Розробка високонавантажених систем на C#" Type="Монографія" Volume="600 стор." CreationDate="2023-12-01">
+		<Author>
+			<FullName>Ковальчук Сергій Петрович</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра програмної інженерії</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Аналіз великих даних (Big Data) в реальному часі за допомогою хмарних технологій Azure" Type="Стаття" CreationDate="2023-11-20">
+		<Author>
+			<FullName>Гончаренко Марія Василівна</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра системного аналізу</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Кібербезпека корпоративних мереж" Type="Презентація" Volume="45 слайдів">
+		<Author>
+			<FullName>Захарченко Олег Дмитрович</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра кібербезпеки</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Алгоритми комп'ютерного зору" Type="Курсова робота">
+		<Author>
+			<FullName>Левченко Олена Ігорівна</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра штучного інтелекту</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Оптимізація SQL запитів" Type="Довідник" Volume="120 стор.">
+		<Author>
+			<FullName>Мельник Вікторія Сергіївна</FullName>
+			<Faculty>Факультет комп'ютерних наук</Faculty>
+			<Department>Кафедра інформаційних систем</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Теорія алгоритмів та математична логіка" Type="Підручник" CreationDate="2022-09-01">
+		<Author>
+			<FullName>Бойко Тарас Григорович</FullName>
+			<Faculty>Факультет комп'ютерних наук</Faculty>
+			<Department>Кафедра комп'ютерної математики</Department>
+		</Author>
+	</Material>
+
+	<Material Title="NoSQL бази даних: MongoDB vs Cassandra" Type="Стаття" Volume="12 стор.">
+		<Author>
+			<FullName>Шевченко Ольга Миколаївна</FullName>
+			<Faculty>Факультет комп'ютерних наук</Faculty>
+			<Department>Кафедра інформаційних систем</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Розробка мобільних додатків" Type="Лабораторний практикум" Volume="85 стор.">
+		<Author>
+			<FullName>Коваленко Олена Вікторівна</FullName>
+			<Faculty>Факультет комп'ютерних наук</Faculty>
+			<Department>Кафедра інформаційних систем</Department>
+		</Author>
+	</Material>
+
+	<Material Title="DevOps методології: CI/CD" Type="Презентація" CreationDate="2024-02-10">
+		<Author>
+			<FullName>Петренко Іван Олексійович</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра програмної інженерії</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Нейронні мережі глибокого навчання: архітектура Transformer та її застосування в обробці природної мови (NLP)" Type="Дисертація" Volume="200 стор." CreationDate="2024-01-05">
+		<Author>
+			<FullName>Сидоренко Андрій Богданович</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра штучного інтелекту</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Проектування інтерфейсів користувача (UI/UX)" Type="Методичка">
+		<Author>
+			<FullName>Руденко Катерина Андріївна</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра програмної інженерії</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Криптографія та захист інформації" Type="Підручник" Volume="350 стор.">
+		<Author>
+			<FullName>Захарченко Олег Дмитрович</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра кібербезпеки</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Web-розробка на ASP.NET Core" Type="Відеокурс" CreationDate="2023-10-10">
+		<Author>
+			<FullName>Ковальчук Сергій Петрович</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра програмної інженерії</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Машинне навчання в медицині" Type="Стаття" Volume="8 стор.">
+		<Author>
+			<FullName>Левченко Олена Ігорівна</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра штучного інтелекту</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Адміністрування серверів Linux" Type="Посібник" Volume="150 стор.">
+		<Author>
+			<FullName>Ткаченко Володимир Іванович</FullName>
+			<Faculty>Факультет комп'ютерних наук</Faculty>
+			<Department>Кафедра інформаційних систем</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Хмарні обчислення AWS" Type="Презентація" CreationDate="2023-12-15">
+		<Author>
+			<FullName>Мельник Вікторія Сергіївна</FullName>
+			<Faculty>Факультет комп'ютерних наук</Faculty>
+			<Department>Кафедра інформаційних систем</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Дискретна математика для програмістів" Type="Задачник" Volume="90 стор.">
+		<Author>
+			<FullName>Бойко Тарас Григорович</FullName>
+			<Faculty>Факультет комп'ютерних наук</Faculty>
+			<Department>Кафедра комп'ютерної математики</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Clean Code: принципи чистого коду" Type="Огляд" CreationDate="2023-05-20">
+		<Author>
+			<FullName>Петренко Іван Олексійович</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра програмної інженерії</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Unit Testing з xUnit" Type="Методичка" Volume="40 стор.">
+		<Author>
+			<FullName>Ковальчук Сергій Петрович</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра програмної інженерії</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Генетичні алгоритми" Type="Стаття">
+		<Author>
+			<FullName>Сидоренко Андрій Богданович</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра штучного інтелекту</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Етичний хакінг: основи" Type="Курс лекцій" Volume="12 лекцій">
+		<Author>
+			<FullName>Захарченко Олег Дмитрович</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра кібербезпеки</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Розробка ігор на Unity" Type="Проект">
+		<Author>
+			<FullName>Студентська Група КН-3</FullName>
+			<Faculty>Факультет комп'ютерних наук</Faculty>
+			<Department>Кафедра інформаційних систем</Department>
+		</Author>
+	</Material>
+
+	<Material Title="IoT: Інтернет речей" Type="Огляд" CreationDate="2024-01-20">
+		<Author>
+			<FullName>Ткаченко Володимир Іванович</FullName>
+			<Faculty>Факультет комп'ютерних наук</Faculty>
+			<Department>Кафедра інформаційних систем</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Блокчейн технології" Type="Монографія" Volume="250 стор.">
+		<Author>
+			<FullName>Кривонос Павло Сергійович</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра кібербезпеки</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Автоматизація тестування (QA Automation)" Type="Методичка" CreationDate="2023-08-15">
+		<Author>
+			<FullName>Руденко Катерина Андріївна</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра програмної інженерії</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Python для Data Science" Type="Підручник" Volume="400 стор.">
+		<Author>
+			<FullName>Гончаренко Марія Василівна</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра системного аналізу</Department>
+		</Author>
+	</Material>
+
+	<Material Title="C++ для професіоналів. Тонкощі використання стандарту C++20 та шаблонів" Type="Довідник" Volume="800 стор.">
+		<Author>
+			<FullName>Ковальчук Сергій Петрович</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра програмної інженерії</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Основи комп'ютерних мереж" Type="Лабораторний практикум" Volume="60 стор.">
+		<Author>
+			<FullName>Мельник Вікторія Сергіївна</FullName>
+			<Faculty>Факультет комп'ютерних наук</Faculty>
+			<Department>Кафедра інформаційних систем</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Вступ до React.js" Type="Стаття">
+		<Author>
+			<FullName>Степаненко Ігор</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра програмної інженерії</Department>
+		</Author>
+	</Material>
+	<Material Title="Мікросервісна архітектура" Type="Презентація" Volume="50 слайдів">
+		<Author>
+			<FullName>Петренко Іван Олексійович</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра програмної інженерії</Department>
+		</Author>
+	</Material>
+	<Material Title="Математичне моделювання економічних процесів" Type="Монографія" CreationDate="2022-02-02">
+		<Author>
+			<FullName>Бойко Тарас Григорович</FullName>
+			<Faculty>Факультет комп'ютерних наук</Faculty>
+			<Department>Кафедра комп'ютерної математики</Department>
+		</Author>
+	</Material>
+	<Material Title="Docker для початківців" Type="Методичка" Volume="25 стор.">
+		<Author>
+			<FullName>Ткаченко Володимир Іванович</FullName>
+			<Faculty>Факультет комп'ютерних наук</Faculty>
+			<Department>Кафедра інформаційних систем</Department>
+		</Author>
+	</Material>
+	<Material Title="Квантові обчислення: перспективи" Type="Тези доповідей">
+		<Author>
+			<FullName>Сидоренко Андрій Богданович</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра штучного інтелекту</Department>
+		</Author>
+	</Material>
+	<Material Title="Scrum та Agile: гнучкі методології" Type="Презентація" CreationDate="2023-04-12">
+		<Author>
+			<FullName>Руденко Катерина Андріївна</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра програмної інженерії</Department>
+		</Author>
+	</Material>
+	<Material Title="Обробка зображень в MATLAB" Type="Лабораторна робота">
+		<Author>
+			<FullName>Левченко Олена Ігорівна</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра штучного інтелекту</Department>
+		</Author>
+	</Material>
+	<Material Title="Створення чат-ботів в Telegram" Type="Курсова робота" Volume="40 стор.">
+		<Author>
+			<FullName>Студент Іванов О.О.</FullName>
+			<Faculty>Факультет комп'ютерних наук</Faculty>
+			<Department>Кафедра інформаційних систем</Department>
+		</Author>
+	</Material>
+	<Material Title="Вразливості OWASP Top 10" Type="Стаття">
+		<Author>
+			<FullName>Захарченко Олег Дмитрович</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра кібербезпеки</Department>
+		</Author>
+	</Material>
+	<Material Title="Паралельні обчислення на GPU" Type="Дослідження" CreationDate="2023-11-11">
+		<Author>
+			<FullName>Бойко Тарас Григорович</FullName>
+			<Faculty>Факультет комп'ютерних наук</Faculty>
+			<Department>Кафедра комп'ютерної математики</Department>
+		</Author>
+	</Material>
+</Archive>

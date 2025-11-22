@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Archive>
+	<Material Title="Аналіз алгоритмів" Type="Стаття" CreationDate="2023-10-15">
+		<Author>
+			<FullName>Петренко Іван Олексійович</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра програмної інженерії</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Лабораторний практикум з C#" Type="Методичка" Volume="52 стор.">
+		<Author>
+			<FullName>Коваленко Олена Вікторівна</FullName>
+			<Faculty>Факультет комп'ютерних наук</Faculty>
+			<Department>Кафедра інформаційних систем</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Вступ до машинного навчання" Type="Презентація" CreationDate="2023-11-01" Volume="30 слайдів">
+		<Author>
+			<FullName>Сидоренко Андрій Богданович</FullName>
+			<Faculty>Факультет інформаційних технологій</Faculty>
+			<Department>Кафедра штучного інтелекту</Department>
+		</Author>
+	</Material>
+
+	<Material Title="Звіт про наукову роботу">
+		<Author>
+			<FullName>Мельник Вікторія Сергіївна</FullName>
+			<Faculty>Факультет комп'ютерних наук</Faculty>
+			<Department>Кафедра інформаційних систем</Department>
+		</Author>
+	</Material>
+</Archive>
