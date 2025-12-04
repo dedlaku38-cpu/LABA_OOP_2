@@ -1,6 +1,5 @@
 ﻿using Lab2XmlAnalysis.ViewModels;
-using Microsoft.UI.Xaml;
-using Windows.Graphics;
+using Microsoft.Maui.Controls; // Основное пространство имен для MAUI
 
 namespace Lab2XmlAnalysis
 {
@@ -11,23 +10,28 @@ namespace Lab2XmlAnalysis
         public MainPage()
         {
             InitializeComponent();
+
+            // Инициализация ViewModel и привязка контекста
             _viewModel = new MainViewModel();
             BindingContext = _viewModel;
         }
 
-        // --- 1. ЗМІНА РОЗМІРУ (ЗАВАНТАЖЕННЯ) ---
+        // =========================================================
+        // 1. ЗМІНА РОЗМІРУ (ЗАВАНТАЖЕННЯ / ПОВОРОТ ЕКРАНУ)
+        // =========================================================
         private void OnContentSizeChanged(object sender, EventArgs e)
         {
+            // Виконуємо в Dispatcher, щоб UI встиг оновитися перед перевіркою розмірів
             Dispatcher.Dispatch(() =>
             {
-                // Перевіряємо обидва списки (обидва тепер ScrollView)
+                // Перевіряємо обидва списки
                 CheckScrollButtonVisibility(ParamsScrollView, ParamsScrollUpButton, ParamsScrollDownButton);
                 CheckScrollButtonVisibility(ResultsScrollView, ResultsScrollUpButton, ResultsScrollDownButton);
             });
         }
 
         // =========================================================
-        // 2. ПАРАМЕТРИ
+        // 2. ПАРАМЕТРИ (ЛІВА ЧАСТИНА)
         // =========================================================
         private void OnParamsScrolled(object sender, ScrolledEventArgs e)
         {
@@ -36,16 +40,18 @@ namespace Lab2XmlAnalysis
 
         private async void OnParamsScrollUp(object sender, EventArgs e)
         {
-            await ParamsScrollView.ScrollToAsync(0, 0, true);
+            if (ParamsScrollView != null)
+                await ParamsScrollView.ScrollToAsync(0, 0, true);
         }
 
         private async void OnParamsScrollDown(object sender, EventArgs e)
         {
-            await ParamsScrollView.ScrollToAsync(0, ParamsScrollView.ContentSize.Height, true);
+            if (ParamsScrollView != null)
+                await ParamsScrollView.ScrollToAsync(0, ParamsScrollView.ContentSize.Height, true);
         }
 
         // =========================================================
-        // 3. РЕЗУЛЬТАТИ (ПОВЕРНУТО ScrollView)
+        // 3. РЕЗУЛЬТАТИ (ПРАВА ЧАСТИНА)
         // =========================================================
         private void OnResultsScrolled(object sender, ScrolledEventArgs e)
         {
@@ -54,26 +60,30 @@ namespace Lab2XmlAnalysis
 
         private async void OnResultsScrollUp(object sender, EventArgs e)
         {
-            await ResultsScrollView.ScrollToAsync(0, 0, true);
+            if (ResultsScrollView != null)
+                await ResultsScrollView.ScrollToAsync(0, 0, true);
         }
 
         private async void OnResultsScrollDown(object sender, EventArgs e)
         {
-            await ResultsScrollView.ScrollToAsync(0, ResultsScrollView.ContentSize.Height, true);
+            if (ResultsScrollView != null)
+                await ResultsScrollView.ScrollToAsync(0, ResultsScrollView.ContentSize.Height, true);
         }
 
         // =========================================================
-        // УНІВЕРСАЛЬНА ЛОГІКА ВИДИМОСТІ
+        // УНІВЕРСАЛЬНА ЛОГІКА ВИДИМОСТІ КНОПОК
         // =========================================================
         private void CheckScrollButtonVisibility(ScrollView scrollView, Button upButton, Button downButton)
         {
-            if (scrollView == null) return;
+            // Захист від null (якщо елементи ще не ініціалізовані)
+            if (scrollView == null || upButton == null || downButton == null) return;
 
             double contentHeight = scrollView.ContentSize.Height;
             double viewportHeight = scrollView.Height;
             double scrollY = scrollView.ScrollY;
 
-            // Якщо контенту мало -> ховаємо кнопки
+            // Якщо контенту мало і він вміщується на екрані -> ховаємо обидві кнопки
+            // Додаємо невеликий буфер (+10), щоб уникнути мерехтіння при граничних значеннях
             if (viewportHeight <= 0 || contentHeight <= viewportHeight + 10)
             {
                 if (upButton.IsVisible) upButton.IsVisible = false;
@@ -81,13 +91,17 @@ namespace Lab2XmlAnalysis
                 return;
             }
 
-            // Вгору? (Ми зверху?)
+            // Логіка кнопки "Вгору"
+            // Якщо ми майже зверху (scrollY <= 10), ховаємо кнопку
             bool isAtTop = scrollY <= 10;
-            upButton.IsVisible = !isAtTop;
+            if (upButton.IsVisible != !isAtTop)
+                upButton.IsVisible = !isAtTop;
 
-            // Вниз? (Ми знизу?)
+            // Логіка кнопки "Вниз"
+            // Якщо ми майже знизу, ховаємо кнопку
             bool isAtBottom = scrollY >= (contentHeight - viewportHeight - 10);
-            downButton.IsVisible = !isAtBottom;
+            if (downButton.IsVisible != !isAtBottom)
+                downButton.IsVisible = !isAtBottom;
         }
     }
 }

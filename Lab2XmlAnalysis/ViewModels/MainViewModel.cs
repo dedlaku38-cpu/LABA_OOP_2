@@ -19,10 +19,13 @@ namespace Lab2XmlAnalysis.ViewModels
     {
         public ObservableCollection<string> AnalysisTypes { get; }
         [ObservableProperty] private string selectedAnalysisType;
+
         [ObservableProperty] private ObservableCollection<string> faculties;
         [ObservableProperty] private string selectedFaculty;
+
         [ObservableProperty] private ObservableCollection<string> departments;
         [ObservableProperty] private string selectedDepartment;
+
         [ObservableProperty] private string authorQuery;
         [ObservableProperty] private string titleQuery;
 
@@ -55,7 +58,9 @@ namespace Lab2XmlAnalysis.ViewModels
         {
             analysisStrategies = new Dictionary<string, IAnalysisStrategy>
             {
-                { "SAX", new SaxAnalysisStrategy() }, { "DOM", new DomAnalysisStrategy() }, { "LINQ to XML", new LinqToXmlAnalysisStrategy() }
+                { "SAX", new SaxAnalysisStrategy() },
+                { "DOM", new DomAnalysisStrategy() },
+                { "LINQ to XML", new LinqToXmlAnalysisStrategy() }
             };
             AnalysisTypes = new ObservableCollection<string> { "SAX", "DOM", "LINQ to XML" };
             SelectedAnalysisType = AnalysisTypes.First();
@@ -170,16 +175,23 @@ namespace Lab2XmlAnalysis.ViewModels
         private void ParseAttributesFromXml(string xml)
         {
             if (string.IsNullOrEmpty(xml)) return;
-            XDocument doc = XDocument.Parse(xml);
-            var facultyList = doc.Descendants("Author").Select(a => a.Element("Faculty")?.Value).Where(f => !string.IsNullOrEmpty(f)).Distinct().OrderBy(f => f).ToList();
-            var departmentList = doc.Descendants("Author").Select(a => a.Element("Department")?.Value).Where(d => !string.IsNullOrEmpty(d)).Distinct().OrderBy(d => d).ToList();
-            MainThread.BeginInvokeOnMainThread(() => {
-                Faculties.Clear(); Departments.Clear();
-                Faculties.Add("Всі факультети"); Departments.Add("Всі кафедри");
-                foreach (var f in facultyList) Faculties.Add(f);
-                foreach (var d in departmentList) Departments.Add(d);
-                SelectedFaculty = Faculties.First(); SelectedDepartment = Departments.First();
-            });
+            try
+            {
+                XDocument doc = XDocument.Parse(xml);
+                var facultyList = doc.Descendants("Author").Select(a => a.Element("Faculty")?.Value).Where(f => !string.IsNullOrEmpty(f)).Distinct().OrderBy(f => f).ToList();
+                var departmentList = doc.Descendants("Author").Select(a => a.Element("Department")?.Value).Where(d => !string.IsNullOrEmpty(d)).Distinct().OrderBy(d => d).ToList();
+                MainThread.BeginInvokeOnMainThread(() => {
+                    Faculties.Clear(); Departments.Clear();
+                    Faculties.Add("Всі факультети"); Departments.Add("Всі кафедри");
+                    foreach (var f in facultyList) Faculties.Add(f);
+                    foreach (var d in departmentList) Departments.Add(d);
+                    SelectedFaculty = Faculties.First(); SelectedDepartment = Departments.First();
+                });
+            }
+            catch (Exception)
+            {
+                // Ігноруємо помилки парсингу при завантаженні атрибутів
+            }
         }
 
         private string GenerateXmlFromResults(IEnumerable<Material> materials)
@@ -187,6 +199,52 @@ namespace Lab2XmlAnalysis.ViewModels
             var xDoc = new XDocument(new XDeclaration("1.0", "utf-8", "yes"), new XElement("Archive", materials.Select(m => new XElement("Material", new XAttribute("Title", m.Title), new XAttribute("Type", m.Type), new XAttribute("CreationDate", m.CreationDate), new XAttribute("Volume", m.Volume), new XElement("Author", new XElement("FullName", m.Author.FullName), new XElement("Faculty", m.Author.Faculty), new XElement("Department", m.Author.Department))))));
             return xDoc.ToString();
         }
+
+        // === ВИПРАВЛЕНИЙ МЕТОД ДЛЯ КНОПКИ "Відкрити файл XML" ===
+        [RelayCommand]
+        private async Task OpenFile()
+        {
+            try
+            {
+                // Створюємо кастомний тип файлу для XML
+                var xmlFileType = new FilePickerFileType(
+                    new Dictionary<DevicePlatform, IEnumerable<string>>
+                    {
+                        { DevicePlatform.iOS, new[] { "public.xml" } },
+                        { DevicePlatform.Android, new[] { "application/xml", "text/xml" } },
+                        { DevicePlatform.WinUI, new[] { ".xml" } },
+                        { DevicePlatform.macOS, new[] { "xml" } },
+                    });
+
+                var result = await FilePicker.Default.PickAsync(new PickOptions
+                {
+                    PickerTitle = "Виберіть XML файл для аналізу",
+                    FileTypes = xmlFileType
+                });
+
+                if (result != null)
+                {
+                    IsBusy = true;
+                    using var stream = await result.OpenReadAsync();
+                    using var reader = new StreamReader(stream);
+                    loadedXmlContent = await reader.ReadToEndAsync();
+
+                    ParseAttributesFromXml(loadedXmlContent);
+                    await Clear();
+
+                    await Application.Current.MainPage.DisplayAlert("Файл завантажено", $"Файл '{result.FileName}' успішно прочитано.", "OK");
+                }
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Помилка", $"Не вдалося відкрити файл: {ex.Message}", "OK");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+        // ===================================================
 
         [RelayCommand]
         private async Task OpenArchiveFolder()
@@ -221,7 +279,6 @@ namespace Lab2XmlAnalysis.ViewModels
             finally { IsBusy = false; }
         }
 
-        // === ЗБЕРЕЖЕННЯ HTML ===
         [RelayCommand]
         private async Task SaveHtml()
         {
@@ -253,7 +310,6 @@ namespace Lab2XmlAnalysis.ViewModels
             try
             {
                 await File.WriteAllTextAsync(finalPath, HtmlContent);
-                // ТУТ ЗМІНЕНО: Використовуємо емодзі папки
                 await Application.Current.MainPage.DisplayAlert("Успіх", "HTML файл збережено у 📂", "OK");
             }
             catch (Exception ex) { await Application.Current.MainPage.DisplayAlert("Помилка", ex.Message, "OK"); }
